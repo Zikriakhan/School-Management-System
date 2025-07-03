@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "staff": "Staff",
+    "students": "Students",
+    "departments": "Departments",
+    "courses": "Courses",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "header": {
+    "adminUser": "Admin User",
+    "administrator": "Administrator"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "departments": "Departments",
+    "staff": "Staff",
+    "students": "Students",
+    "courses": "Courses",
+    "departmentsCount": "10",
+    "staffCount": "40",
+    "studentsCount": "2,000",
+    "coursesCount": "260",
+    "departmentsTrend": "+2 this month",
+    "staffTrend": "+5 new hires",
+    "studentsTrend": "+150 this semester",
+    "coursesTrend": "+12 new courses",
+    "recentActivities": "Recent Activities",
+    "upcomingEvents": "Upcoming Events",
+    "viewAll": "View All",
+    "viewCalendar": "View Calendar",
+    "activities": {
+      "newStudent": "New student enrolled",
+      "courseUpdated": "Course \"Advanced Mathematics\" updated",
+      "staffAdded": "Staff member added to Computer Science",
+      "departmentCreated": "New department \"Digital Arts\" created"
+    },
+    "events": {
+      "facultyMeeting": "Faculty Meeting",
+      "studentOrientation": "Student Orientation",
+      "registrationDeadline": "Course Registration Deadline",
+      "semesterExams": "Semester Exams"
+    },
+    "timeAgo": {
+      "2min": "2 minutes ago",
+      "15min": "15 minutes ago",
+      "1hour": "1 hour ago",
+      "2hours": "2 hours ago"
+    },
+    "eventDates": {
+      "today2pm": "Today, 2:00 PM",
+      "tomorrow9am": "Tomorrow, 9:00 AM",
+      "march15": "March 15, 2024",
+      "april1-15": "April 1-15, 2024"
+    }
+  },
+  "staff": {
+    "title": "Staff Management",
+    "subtitle": "Manage your school staff members",
+    "addStaff": "Add Staff Member",
+    "searchPlaceholder": "Search staff by name, department, or role...",
+    "filter": "Filter",
+    "viewProfile": "View Profile",
+    "edit": "Edit",
+    "noStaffFound": "No staff members found",
+    "adjustSearch": "Try adjusting your search criteria",
+    "status": {
+      "active": "Active",
+      "away": "Away"
+    }
+  },
+  "students": {
+    "title": "Student Management",
+    "subtitle": "Manage your school students",
+    "addStudent": "Add Student",
+    "searchPlaceholder": "Search students by name, ID, grade, or class...",
+    "filter": "Filter",
+    "viewProfile": "View Profile",
+    "edit": "Edit",
+    "noStudentsFound": "No students found",
+    "adjustSearch": "Try adjusting your search criteria",
+    "gradeClass": "Grade & Class",
+    "enrolled": "Enrolled",
+    "gpa": "GPA",
+    "status": {
+      "active": "Active",
+      "honor": "Honor Student"
+    }
+  },
+  "departments": {
+    "title": "Department Management",
+    "subtitle": "Manage your school departments",
+    "addDepartment": "Add Department",
+    "searchPlaceholder": "Search departments by name or head...",
+    "departmentHead": "Department Head",
+    "staffMembers": "Staff Members",
+    "courses": "Courses",
+    "viewDetails": "View Details",
+    "edit": "Edit",
+    "noDepartmentsFound": "No departments found",
+    "adjustSearch": "Try adjusting your search criteria",
+    "established": "Est."
+  },
+  "courses": {
+    "title": "Course Management",
+    "subtitle": "Manage your school courses",
+    "addCourse": "Add Course",
+    "searchPlaceholder": "Search courses by title, code, department, or instructor...",
+    "filter": "Filter",
+    "instructor": "Instructor",
+    "schedule": "Schedule",
+    "credits": "Credits",
+    "students": "Students",
+    "rating": "rating",
+    "enrolled": "enrolled",
+    "viewDetails": "View Details",
+    "edit": "Edit",
+    "noCoursesFound": "No courses found",
+    "adjustSearch": "Try adjusting your search criteria",
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "status": {
+      "active": "Active",
+      "enrolling": "Enrolling",
+      "completed": "Completed"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your system preferences and configuration",
+    "tabs": {
+      "general": "General",
+      "school": "School Info",
+      "users": "User Management",
+      "notifications": "Notifications",
+      "security": "Security",
+      "data": "Data & Backup",
+      "appearance": "Appearance",
+      "localization": "Localization"
+    },
+    "general": {
+      "title": "General Settings",
+      "systemName": "System Name",
+      "systemVersion": "System Version",
+      "timeZone": "Time Zone",
+      "dateFormat": "Date Format"
+    },
+    "school": {
+      "title": "School Information",
+      "schoolName": "School Name",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "website": "Website",
+      "establishedYear": "Established Year"
+    },
+    "security": {
+      "title": "Security Settings",
+      "passwordPolicy": "Password Policy",
+      "sessionManagement": "Session Management",
+      "sessionTimeout": "Session Timeout (minutes)",
+      "maxLoginAttempts": "Max Login Attempts",
+      "requireMinChars": "Require minimum 8 characters",
+      "requireUpperLower": "Require uppercase and lowercase letters",
+      "requireNumbers": "Require numbers",
+      "requireSpecialChars": "Require special characters"
+    },
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This settings section is under development.",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes"
+  },
+  "common": {
+    "search": "Search",
+    "filter": "Filter",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "noData": "No data available"
+  }
+}

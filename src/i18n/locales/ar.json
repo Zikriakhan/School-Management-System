@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "staff": "الموظفين",
+    "students": "الطلاب",
+    "departments": "الأقسام",
+    "courses": "المقررات",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "header": {
+    "adminUser": "مستخدم إداري",
+    "administrator": "مدير"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "departments": "الأقسام",
+    "staff": "الموظفين",
+    "students": "الطلاب",
+    "courses": "المقررات",
+    "departmentsCount": "10",
+    "staffCount": "40",
+    "studentsCount": "2,000",
+    "coursesCount": "260",
+    "departmentsTrend": "+2 هذا الشهر",
+    "staffTrend": "+5 موظفين جدد",
+    "studentsTrend": "+150 هذا الفصل",
+    "coursesTrend": "+12 مقرر جديد",
+    "recentActivities": "الأنشطة الحديثة",
+    "upcomingEvents": "الأحداث القادمة",
+    "viewAll": "عرض الكل",
+    "viewCalendar": "عرض التقويم",
+    "activities": {
+      "newStudent": "تم تسجيل طالب جديد",
+      "courseUpdated": "تم تحديث مقرر \"الرياضيات المتقدمة\"",
+      "staffAdded": "تم إضافة موظف إلى قسم علوم الحاسوب",
+      "departmentCreated": "تم إنشاء قسم جديد \"الفنون الرقمية\""
+    },
+    "events": {
+      "facultyMeeting": "اجتماع أعضاء هيئة التدريس",
+      "studentOrientation": "توجيه الطلاب",
+      "registrationDeadline": "موعد انتهاء التسجيل في المقررات",
+      "semesterExams": "امتحانات الفصل الدراسي"
+    },
+    "timeAgo": {
+      "2min": "منذ دقيقتين",
+      "15min": "منذ 15 دقيقة",
+      "1hour": "منذ ساعة واحدة",
+      "2hours": "منذ ساعتين"
+    },
+    "eventDates": {
+      "today2pm": "اليوم، 2:00 مساءً",
+      "tomorrow9am": "غداً، 9:00 صباحاً",
+      "march15": "15 مارس، 2024",
+      "april1-15": "1-15 أبريل، 2024"
+    }
+  },
+  "staff": {
+    "title": "إدارة الموظفين",
+    "subtitle": "إدارة موظفي المدرسة",
+    "addStaff": "إضافة موظف",
+    "searchPlaceholder": "البحث عن الموظفين بالاسم أو القسم أو المنصب...",
+    "filter": "تصفية",
+    "viewProfile": "عرض الملف الشخصي",
+    "edit": "تعديل",
+    "noStaffFound": "لم يتم العثور على موظفين",
+    "adjustSearch": "جرب تعديل معايير البحث",
+    "status": {
+      "active": "نشط",
+      "away": "غائب"
+    }
+  },
+  "students": {
+    "title": "إدارة الطلاب",
+    "subtitle": "إدارة طلاب المدرسة",
+    "addStudent": "إضافة طالب",
+    "searchPlaceholder": "البحث عن الطلاب بالاسم أو الرقم أو الصف أو الفصل...",
+    "filter": "تصفية",
+    "viewProfile": "عرض الملف الشخصي",
+    "edit": "تعديل",
+    "noStudentsFound": "لم يتم العثور على طلاب",
+    "adjustSearch": "جرب تعديل معايير البحث",
+    "gradeClass": "الصف والفصل",
+    "enrolled": "مسجل",
+    "gpa": "المعدل التراكمي",
+    "status": {
+      "active": "نشط",
+      "honor": "طالب متفوق"
+    }
+  },
+  "departments": {
+    "title": "إدارة الأقسام",
+    "subtitle": "إدارة أقسام المدرسة",
+    "addDepartment": "إضافة قسم",
+    "searchPlaceholder": "البحث عن الأقسام بالاسم أو رئيس القسم...",
+    "departmentHead": "رئيس القسم",
+    "staffMembers": "أعضاء الهيئة",
+    "courses": "المقررات",
+    "viewDetails": "عرض التفاصيل",
+    "edit": "تعديل",
+    "noDepartmentsFound": "لم يتم العثور على أقسام",
+    "adjustSearch": "جرب تعديل معايير البحث",
+    "established": "تأسس"
+  },
+  "courses": {
+    "title": "إدارة المقررات",
+    "subtitle": "إدارة مقررات المدرسة",
+    "addCourse": "إضافة مقرر",
+    "searchPlaceholder": "البحث عن المقررات بالعنوان أو الرمز أو القسم أو المدرس...",
+    "filter": "تصفية",
+    "instructor": "المدرس",
+    "schedule": "الجدول",
+    "credits": "الساعات المعتمدة",
+    "students": "الطلاب",
+    "rating": "التقييم",
+    "enrolled": "مسجل",
+    "viewDetails": "عرض التفاصيل",
+    "edit": "تعديل",
+    "noCoursesFound": "لم يتم العثور على مقررات",
+    "adjustSearch": "جرب تعديل معايير البحث",
+    "level": {
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم"
+    },
+    "status": {
+      "active": "نشط",
+      "enrolling": "قيد التسجيل",
+      "completed": "مكتمل"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "إدارة تفضيلات النظام والتكوين",
+    "tabs": {
+      "general": "عام",
+      "school": "معلومات المدرسة",
+      "users": "إدارة المستخدمين",
+      "notifications": "الإشعارات",
+      "security": "الأمان",
+      "data": "البيانات والنسخ الاحتياطي",
+      "appearance": "المظهر",
+      "localization": "التوطين"
+    },
+    "general": {
+      "title": "الإعدادات العامة",
+      "systemName": "اسم النظام",
+      "systemVersion": "إصدار النظام",
+      "timeZone": "المنطقة الزمنية",
+      "dateFormat": "تنسيق التاريخ"
+    },
+    "school": {
+      "title": "معلومات المدرسة",
+      "schoolName": "اسم المدرسة",
+      "address": "العنوان",
+      "phoneNumber": "رقم الهاتف",
+      "email": "البريد الإلكتروني",
+      "website": "الموقع الإلكتروني",
+      "establishedYear": "سنة التأسيس"
+    },
+    "security": {
+      "title": "إعدادات الأمان",
+      "passwordPolicy": "سياسة كلمة المرور",
+      "sessionManagement": "إدارة الجلسات",
+      "sessionTimeout": "انتهاء مهلة الجلسة (بالدقائق)",
+      "maxLoginAttempts": "الحد الأقصى لمحاولات تسجيل الدخول",
+      "requireMinChars": "يتطلب 8 أحرف كحد أدنى",
+      "requireUpperLower": "يتطلب أحرف كبيرة وصغيرة",
+      "requireNumbers": "يتطلب أرقام",
+      "requireSpecialChars": "يتطلب أحرف خاصة"
+    },
+    "comingSoon": "قريباً",
+    "comingSoonDesc": "هذا القسم من الإعدادات قيد التطوير.",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات"
+  },
+  "common": {
+    "search": "بحث",
+    "filter": "تصفية",
+    "add": "إضافة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "loading": "جاري التحميل...",
+    "noData": "لا توجد بيانات متاحة"
+  }
+}
