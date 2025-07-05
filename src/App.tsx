@@ -123,3 +123,14 @@ export default function App() {
     </Router>
   );
 }
+
+
+
+//      iD                 : "01",
+    //  Name               : "Alice Johnson",
+    //  Phone              : "+92403454324",
+    //  Class              : "10th",
+    //  ParentName        : "Deparment Head",
+    //  AdmissionDate     : "10, Mar 2024",
+    //  LastYearGrade    : "A+",
+    //  status         : 'Active',

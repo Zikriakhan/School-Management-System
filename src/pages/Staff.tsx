@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import { Users, Plus, Eye, Edit, Trash2 } from 'lucide-react';
-
+import imges from "./images.jpeg"
 const Staff: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [department, setDepartment] = useState('');
@@ -134,10 +134,24 @@ const Staff: React.FC = () => {
           <p className="text-2xl">2</p>
         </div>
       </div>
+      <div
+  className="flex justify-end items-end min-h-screen "
+  style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', minHeight: '0vh' }}
+>
+  <button
+    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+    style={{ display: 'flex', alignItems: 'center' }}
+  >
+    <Plus className="w-4 h-4" />
+    <span>Add Student</span>
+  </button>
+</div>
+
 
       {/* Charts and Stats */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white p-4 rounded shadow">
+           
           <h2 className="text-lg font-semibold mb-2">Staff</h2>
           <Chart options={chartOptions} series={series} type="bar" height={350} width={670} />
         </div>
@@ -218,7 +232,7 @@ const Staff: React.FC = () => {
                   <td className="p-2 border">
                     <div className="flex items-center gap-2">
                       <img
-                        src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fuser-profile&psig=AOvVaw3445dYgLwmdez_DEqcW2YI&ust=1751624633571000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJCPssS8oI4DFQAAAAAdAAAAABAL'
+                        src={imges}
                         alt="avatar"
                         className="w-8 h-8 rounded-full object-cover"
                       />
@@ -273,7 +287,7 @@ const Staff: React.FC = () => {
 
               <div className="flex items-center gap-4 mb-2">
                 <img
-                  src=""
+                  src={imges}
                   alt="avatar12"
                   className="w-12 h-12 rounded-full object-cover"
                 />

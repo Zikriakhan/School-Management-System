@@ -1,176 +1,334 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { GraduationCap, Plus, Search, Filter, Mail, Calendar, Award } from 'lucide-react';
+import { BsBuildingsFill } from "react-icons/bs";
+import Chart from 'react-apexcharts';
+import { IoLocationSharp } from "react-icons/io5";
 
+import { FaPhoneAlt } from "react-icons/fa";
+
+import { MdEmail } from "react-icons/md";
+
+import { Users, Plus, Eye, Edit, Trash2 } from 'lucide-react';
+import imges from "./images.jpeg"
 const Students: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === 'ar';
+  const [department, setDepartment] = useState('');
+  const [toggleView, setToggleView] = useState<'table' | 'grid'>('table');
 
-  const students = [
-    {
-      id: 1,
-      name: 'Alex Thompson',
-      studentId: 'ST2024001',
-      grade: 'Grade 12',
-      class: '12-A',
-      email: 'alex.thompson@student.edu',
-      enrollDate: '2023-09-01',
-      gpa: '3.8',
-      avatar: 'AT',
-      status: 'active'
+  const years = Array.from({ length: 18 }, (_, i) => (2012 + i).toString());
+  const colors = ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0', '#546E7A', '#26a69a', '#D10CE8'];
+
+  const chartOptions = {
+    chart: { type: 'bar', height: 350 },
+    plotOptions: { bar: { columnWidth: '6%', distributed: true } },
+    dataLabels: { enabled: false },
+    legend: { show: false },
+    xaxis: {
+      categories: years,
+      title: { text: 'Year' },
+      labels: { style: { colors: colors, fontSize: '12px' } },
     },
-    {
-      id: 2,
-      name: 'Maria Garcia',
-      studentId: 'ST2024002',
-      grade: 'Grade 11',
-      class: '11-B',
-      email: 'maria.garcia@student.edu',
-      enrollDate: '2023-09-01',
-      gpa: '3.9',
-      avatar: 'MG',
-      status: 'active'
+    yaxis: {
+      title: { text: 'Staff Count' },
     },
+    colors: colors,
+  };
+
+  const series = [{ data: [4, 8, 10, 12, 14, 16, 18, 20, 22, 24, 20, 22, 24, 28, 30, 32, 36, 40] }];
+
+  const staffData = [
     {
-      id: 3,
-      name: 'David Kim',
-      studentId: 'ST2024003',
-      grade: 'Grade 10',
-      class: '10-C',
-      email: 'david.kim@student.edu',
-      enrollDate: '2023-09-01',
-      gpa: '3.7',
-      avatar: 'DK',
-      status: 'active'
+      id: '01',
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92403454324',
+      course: '10th',
+      role: 'Deparment Head',
+      joinDate: '01, Jan 2022',
+      status: 'A+',
     },
-    {
-      id: 4,
-      name: 'Sophie Williams',
-      studentId: 'ST2024004',
-      grade: 'Grade 12',
-      class: '12-B',
-      email: 'sophie.williams@student.edu',
-      enrollDate: '2023-09-01',
-      gpa: '4.0',
-      avatar: 'SW',
-      status: 'honor'
-    }
+     {
+      id: '02',
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92403454324',
+      course: '9th',
+      role: 'Deparment Head',
+      joinDate: '01, Jan 2022',
+      status: 'B+',
+    },
+     {
+      id: '03',
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92403454324',
+      course: '8th',
+      role: 'Deparment Head',
+      joinDate: '01, Jan 2022',
+      status: 'A+',
+    },
+     {
+      id: '04',
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92403454324',
+      course: '8th',
+      role: 'Deparment Head',
+      joinDate: '01, Jan 2022',
+      status: 'A-',
+    },
+     {
+      id: '05',
+      name: 'John Doe',
+      email: 'john@example.com',
+      phone: '+92403454324',
+      course: '9th',
+      role: 'Deparment Head',
+      joinDate: '01, Jan 2022',
+      status: 'B',
+    },
+
+
+   
   ];
 
-  const filteredStudents = students.filter(student =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.studentId.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.grade.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    student.class.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStaff = staffData.filter(
+    (staff) =>
+      staff.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      (department === '' || staff.course === department)
   );
 
   return (
-    <div className="space-y-6" dir={isRTL ? 'rtl' : 'ltr'}>
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h1 className={`text-2xl font-bold text-gray-900 flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <GraduationCap className={`w-7 h-7 text-blue-600 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-            {t('students.title')}
-          </h1>
-          <p className={`text-gray-600 mt-1 ${isRTL ? 'text-right' : 'text-left'}`}>{t('students.subtitle')}</p>
+    <div className="p-4 space-y-6">
+      {/* Summary Cards */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="bg-yellow-600 text-white p-4 rounded-lg shadow-md text-center">
+          <p className="text-xl font-semibold">Total</p>
+          <p className="text-2xl">40</p>
         </div>
-        <button className={`mt-4 sm:mt-0 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors ${isRTL ? 'flex-row-reverse space-x-reverse' : 'space-x-2'}`}>
-          <Plus className="w-4 h-4" />
-          <span>{t('students.addStudent')}</span>
-        </button>
+        <div className="bg-blue-600 text-white p-4 rounded-lg shadow-md text-center">
+          <p className="text-xl font-semibold">Present</p>
+          <p className="text-2xl">35</p>
+        </div>
+        <div className="bg-green-600 text-white p-4 rounded-lg shadow-md text-center">
+          <p className="text-xl font-semibold">Absent</p>
+          <p className="text-2xl">5</p>
+        </div>
+        <div className="bg-purple-600 text-white p-4 rounded-lg shadow-md text-center">
+          <p className="text-xl font-semibold">New</p>
+          <p className="text-2xl">2</p>
+        </div>
+      </div>
+      <div
+  className="flex justify-end items-end min-h-screen "
+  style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', minHeight: '0vh' }}
+>
+  <button
+    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+    style={{ display: 'flex', alignItems: 'center' }}
+  >
+    <Plus className="w-4 h-4" />
+    <span>Add Student</span>
+  </button>
+</div>
+
+
+      {/* Charts and Stats */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white p-4 rounded shadow">
+           
+          <h2 className="text-lg font-semibold mb-2">Staff</h2>
+          <Chart options={chartOptions} series={series} type="bar" height={350} width={670} />
+        </div>
+
+        <div className="space-y-4">
+          <div className="bg-white p-4 rounded shadow h-[200px]">
+            <h2 className="text-lg font-semibold">Staff By Department</h2>
+            <p className="text-gray-500 mt-4">No data</p>
+          </div>
+          <div className="bg-white p-4 rounded shadow h-[200px]">
+            <h2 className="text-lg font-semibold">Leaved Staff</h2>
+            <p className="text-gray-500 mt-4">No data</p>
+          </div>
+        </div>
       </div>
 
-      {/* Search and Filter */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <div className={`flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 ${isRTL ? 'sm:space-x-reverse' : 'sm:space-x-4'}`}>
-          <div className="flex-1 relative">
-            <Search className={`absolute top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 ${isRTL ? 'right-3' : 'left-3'}`} />
-            <input
-              type="text"
-              placeholder={t('students.searchPlaceholder')}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${isRTL ? 'pr-10 pl-4 text-right' : 'pl-10 pr-4 text-left'}`}
-            />
-          </div>
-          <button className={`flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors ${isRTL ? 'flex-row-reverse space-x-reverse' : 'space-x-2'}`}>
-            <Filter className="w-4 h-4" />
-            <span>{t('students.filter')}</span>
+      {/* Filters */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-gray-100 p-3 rounded-md shadow-sm">
+        <div className="flex items-center border rounded-md overflow-hidden">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="px-3 py-2 outline-none w-48 sm:w-64"
+          />
+        </div>
+
+        <select
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+          className="border px-3 py-2 rounded-md text-sm self-end"
+        >
+          <option value="">Department</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Physics">Physics</option>
+          <option value="Computer Science">Computer Science</option>
+        </select>
+        <select
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+          className="border px-3 py-2 rounded-md text-sm self-end"
+        >
+          <option value="">Class</option>
+          <option value="10th">10th</option>
+          <option value="9th">9th</option>
+          <option value="8th">8th</option>
+        </select>
+
+        <div className="flex gap-2">
+          <button
+            onClick={() => setToggleView('table')}
+            className={`p-2 rounded-md border ${toggleView === 'table' ? 'bg-blue-600 text-white' : 'bg-white'}`}
+            title="Table View"
+          >
+            📋
+          </button>
+          <button
+            onClick={() => setToggleView('grid')}
+            className={`p-2 rounded-md border ${toggleView === 'grid' ? 'bg-blue-600 text-white' : 'bg-white'}`}
+            title="Grid View"
+          >
+            🔲
           </button>
         </div>
       </div>
 
-      {/* Students Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredStudents.map((student) => (
-          <div key={student.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div className={`flex items-center mb-4 ${isRTL ? 'flex-row-reverse space-x-reverse' : 'space-x-4'}`}>
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                {student.avatar}
-              </div>
-              <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                <h3 className="font-semibold text-gray-900">{student.name}</h3>
-                <p className="text-sm text-gray-600">{student.studentId}</p>
-                <div className={`flex items-center mt-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <span className={`w-2 h-2 rounded-full ${isRTL ? 'ml-2' : 'mr-2'} ${
-                    student.status === 'honor' ? 'bg-yellow-500' : 'bg-green-500'
-                  }`}></span>
-                  <span className="text-xs text-gray-500 capitalize">
-                    {t(`students.status.${student.status}`)}
-                  </span>
+      {/* Table View */}
+      {toggleView === 'table' && (
+        <div className="bg-white shadow-md rounded overflow-x-auto">
+          <table className="min-w-full text-sm text-left border mt-4">
+            <thead className="bg-gray-100 text-gray-700">
+              <tr>
+                <th className="p-2 border">ID</th>
+                <th className="p-2 border">Name</th>
+                <th className="p-2 border">Phone</th>
+                <th className="p-2 border">Class</th>
+                <th className="p-2 border">ParentName</th>
+                <th className="p-2 border">AdmissionDate</th>
+                <th className="p-2 border">LastYearGrade</th>
+                <th className="p-2 border">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredStaff.map((staff, index) => (
+                <tr key={index} className="border-b">
+                  <td className="p-2 border">{staff.id}</td>
+                  <td className="p-2 border">
+                    <div className="flex items-center gap-2">
+                      <img
+                        src={imges}
+                        alt="avatar"
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold">{staff.name}</p>
+                        <p className="text-xs text-gray-500">{staff.email}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="p-2 border">{staff.phone}</td>
+                  <td className="p-2 border">{staff.course}</td>
+                  <td className="p-2 border">{staff.role}</td>
+                  <td className="p-2 border">{staff.joinDate}</td>
+                  <td className="p-2 border">
+                    <span
+                      className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                        staff.status === 'A+'
+                          ? 'bg-green-100 text-green-700'
+                          : staff.status === 'Away'
+                          ? 'bg-yellow-100 text-yellow-700'
+                          : 'bg-red-100 text-red-700'
+                      }`}
+                    >
+                      {staff.status}
+                    </span>
+                  </td>
+                  <td className="p-2 border">
+                    <div className="flex gap-2">
+                      <Eye className="text-blue-500 cursor-pointer" size={16} />
+                      <Edit className="text-yellow-500 cursor-pointer" size={16} />
+                      <Trash2 className="text-red-500 cursor-pointer" size={16} />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Grid View */}
+      {toggleView === 'grid' && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+          {filteredStaff.map((staff, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md p-4 relative transition hover:shadow-lg"
+            >
+              <button className="absolute top-3 right-3 bg-red-100 text-red-600 rounded-full p-1 hover:bg-red-200">
+                <Trash2 size={16} />
+              </button>
+
+              <div className="flex items-center gap-4 mb-2">
+                <img
+                  src={imges}
+                  alt="avatar12"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="font-semibold text-lg">{staff.name}</h3>
+                  <p className="text-sm text-gray-500">{staff.role}</p>
                 </div>
               </div>
-            </div>
 
-            <div className="space-y-3 text-sm">
-              <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <span className="text-gray-600">{t('students.gradeClass')}</span>
-                <span className="font-medium">{student.grade} - {student.class}</span>
-              </div>
-              
-              <div className={`flex items-center text-gray-600 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <Mail className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                <span className="truncate">{student.email}</span>
-              </div>
-              
-              <div className={`flex items-center text-gray-600 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <Calendar className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                <span>{t('students.enrolled')}: {new Date(student.enrollDate).toLocaleDateString()}</span>
-              </div>
-              
-              <div className={`flex items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <div className={`flex items-center text-gray-600 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <Award className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                  <span>{t('students.gpa')}</span>
-                </div>
-                <span className={`font-semibold ${
-                  parseFloat(student.gpa) >= 3.8 ? 'text-green-600' : 
-                  parseFloat(student.gpa) >= 3.0 ? 'text-blue-600' : 'text-yellow-600'
-                }`}>
-                  {student.gpa}
-                </span>
+              <div
+  style={{ paddingTop: "20px" }}
+  className="text-sm text-gray-700 space-y-1 mb-4"
+>
+  {/* Each span now uses flex to keep icon and text in one line with spacing */}
+  
+  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px"  }}>
+    <BsBuildingsFill size="18px" />
+    8th
+  </span>
+
+  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
+    <MdEmail size="18px" />
+    muhammadjanzirki@gamil
+  </span>
+
+  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
+    <FaPhoneAlt size="18px" />
+    +92456789
+  </span>
+
+  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
+    <IoLocationSharp size="18px" />
+    As Salam, Saad bin Obadah
+  </span>
+</div>
+
+
+              <div className="flex justify-between border-t pt-3">
+                <button className="px-3 py-1 rounded-md bg-blue-100 text-blue-600 font-medium text-sm hover:bg-blue-200">
+                  View Profile
+                </button>
+                <button className="px-3 py-1 rounded-md bg-gray-200 text-gray-600 font-medium text-sm hover:bg-gray-300">
+                  Edit
+                </button>
               </div>
             </div>
-
-            <div className={`flex mt-4 pt-4 border-t border-gray-100 ${isRTL ? 'flex-row-reverse space-x-reverse' : 'space-x-2'}`}>
-              <button className="flex-1 px-3 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors">
-                {t('students.viewProfile')}
-              </button>
-              <button className="flex-1 px-3 py-2 text-sm bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
-                {t('students.edit')}
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {filteredStudents.length === 0 && (
-        <div className={`text-center py-12 ${isRTL ? 'text-right' : 'text-left'}`}>
-          <GraduationCap className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">{t('students.noStudentsFound')}</h3>
-          <p className="text-gray-600">{t('students.adjustSearch')}</p>
+          ))}
         </div>
       )}
     </div>
@@ -178,3 +336,4 @@ const Students: React.FC = () => {
 };
 
 export default Students;
+
