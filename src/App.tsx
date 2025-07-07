@@ -19,6 +19,8 @@ function AppWrapper() {
   const { i18n } = useTranslation();
   const location = useLocation();
 
+  console.log("Hello feature 2")
+
   useEffect(() => {
     document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = i18n.language;
@@ -127,10 +129,10 @@ export default function App() {
 
 
 //      iD                 : "01",
-    //  Name               : "Alice Johnson",
-    //  Phone              : "+92403454324",
-    //  Class              : "10th",
-    //  ParentName        : "Deparment Head",
-    //  AdmissionDate     : "10, Mar 2024",
-    //  LastYearGrade    : "A+",
-    //  status         : 'Active',
+//  Name               : "Alice Johnson",
+//  Phone              : "+92403454324",
+//  Class              : "10th",
+//  ParentName        : "Deparment Head",
+//  AdmissionDate     : "10, Mar 2024",
+//  LastYearGrade    : "A+",
+//  status         : 'Active',
