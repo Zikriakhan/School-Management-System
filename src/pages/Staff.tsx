@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import { Users, Plus, Eye, Edit, Trash2 } from 'lucide-react';
+import { BsBuildingsFill } from "react-icons/bs";
+import { IoLocationSharp } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+
+import { MdEmail } from "react-icons/md"
 import imges from "./images.jpeg"
 const Staff: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -274,15 +279,15 @@ const Staff: React.FC = () => {
       )}
 
       {/* Grid View */}
-      {toggleView === 'grid' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+     {toggleView === 'grid' && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 , inter,san-ferif">
           {filteredStaff.map((staff, index) => (
             <div
               key={index}
               className="bg-white rounded-xl shadow-md p-4 relative transition hover:shadow-lg"
             >
-              <button className="absolute top-3 right-3 bg-red-100 text-red-600 rounded-full p-1 hover:bg-red-200">
-                <Trash2 size={16} />
+              <button className="absolute top-8 right-3 bg-red-100 text-red-600 rounded-full p-1 hover:bg-red-200">
+                <Trash2 size={17} />
               </button>
 
               <div className="flex items-center gap-4 mb-2">
@@ -293,19 +298,37 @@ const Staff: React.FC = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{staff.name}</h3>
-                  <p className="text-sm text-gray-500">{staff.role}</p>
-                  <p className="text-xs text-green-600 font-medium">• {staff.status}</p>
+                  <p className="text-[.75rem] text-gray-500">{staff.role}</p>
                 </div>
               </div>
 
-              <div className="text-sm text-gray-700 space-y-1 mb-4">
-                <p className="flex items-center gap-2">
-                  <Users size={14} /> {staff.course}
-                </p>
-                <p className="flex items-center gap-2">✉️ {staff.email}</p>
-                <p className="flex items-center gap-2">📞 {staff.phone}</p>
-                <p className="flex items-center gap-2">📍 As Salam, Saad bin Obadah</p>
+              <div
+                style={{ paddingTop: "20px" }}
+                className="text-sm text-gray-700 space-y-1 mb-4"
+              >
+                {/* Each span now uses flex to keep icon and text in one line with spacing */}
+
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <BsBuildingsFill size="18px" />
+                  8th
+                </span>
+
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <MdEmail size="18px" />
+                  muhammadjanzirki@gamil
+                </span>
+
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <FaPhoneAlt size="18px" />
+                  +92456789
+                </span>
+
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <IoLocationSharp size="18px" />
+                  As Salam, Saad bin Obadah
+                </span>
               </div>
+
 
               <div className="flex justify-between border-t pt-3">
                 <button className="px-3 py-1 rounded-md bg-blue-100 text-blue-600 font-medium text-sm hover:bg-blue-200">

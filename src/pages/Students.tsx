@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { BsBuildingsFill } from "react-icons/bs";
 import Chart from 'react-apexcharts';
-import { IoLocationSharp } from "react-icons/io5";
 
+import { BsBuildingsFill } from "react-icons/bs";
+import { IoLocationSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 
 import { MdEmail } from "react-icons/md";
@@ -46,7 +46,7 @@ const Students: React.FC = () => {
       joinDate: '01, Jan 2022',
       status: 'A+',
     },
-     {
+    {
       id: '02',
       name: 'John Doe',
       email: 'john@example.com',
@@ -56,7 +56,7 @@ const Students: React.FC = () => {
       joinDate: '01, Jan 2022',
       status: 'B+',
     },
-     {
+    {
       id: '03',
       name: 'John Doe',
       email: 'john@example.com',
@@ -66,7 +66,7 @@ const Students: React.FC = () => {
       joinDate: '01, Jan 2022',
       status: 'A+',
     },
-     {
+    {
       id: '04',
       name: 'John Doe',
       email: 'john@example.com',
@@ -76,7 +76,7 @@ const Students: React.FC = () => {
       joinDate: '01, Jan 2022',
       status: 'A-',
     },
-     {
+    {
       id: '05',
       name: 'John Doe',
       email: 'john@example.com',
@@ -88,7 +88,7 @@ const Students: React.FC = () => {
     },
 
 
-   
+
   ];
 
   const filteredStaff = staffData.filter(
@@ -119,23 +119,23 @@ const Students: React.FC = () => {
         </div>
       </div>
       <div
-  className="flex justify-end items-end min-h-screen "
-  style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', minHeight: '0vh' }}
->
-  <button
-    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
-    style={{ display: 'flex', alignItems: 'center' }}
-  >
-    <Plus className="w-4 h-4" />
-    <span>Add Student</span>
-  </button>
-</div>
+        className="flex justify-end items-end min-h-screen "
+        style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', minHeight: '0vh' }}
+      >
+        <button
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <Plus className="w-4 h-4" />
+          <span>Add Student</span>
+        </button>
+      </div>
 
 
       {/* Charts and Stats */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white p-4 rounded shadow">
-           
+
           <h2 className="text-lg font-semibold mb-2">Staff</h2>
           <Chart options={chartOptions} series={series} type="bar" height={350} width={670} />
         </div>
@@ -242,13 +242,12 @@ const Students: React.FC = () => {
                   <td className="p-2 border">{staff.joinDate}</td>
                   <td className="p-2 border">
                     <span
-                      className={`px-2 py-1 text-xs font-semibold rounded-full ${
-                        staff.status === 'A+'
+                      className={`px-2 py-1 text-xs font-semibold rounded-full ${staff.status === 'A+'
                           ? 'bg-green-100 text-green-700'
                           : staff.status === 'Away'
-                          ? 'bg-yellow-100 text-yellow-700'
-                          : 'bg-red-100 text-red-700'
-                      }`}
+                            ? 'bg-yellow-100 text-yellow-700'
+                            : 'bg-red-100 text-red-700'
+                        }`}
                     >
                       {staff.status}
                     </span>
@@ -269,14 +268,14 @@ const Students: React.FC = () => {
 
       {/* Grid View */}
       {toggleView === 'grid' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 , inter,san-ferif">
           {filteredStaff.map((staff, index) => (
             <div
               key={index}
               className="bg-white rounded-xl shadow-md p-4 relative transition hover:shadow-lg"
             >
-              <button className="absolute top-3 right-3 bg-red-100 text-red-600 rounded-full p-1 hover:bg-red-200">
-                <Trash2 size={16} />
+              <button className="absolute top-8 right-3 bg-red-100 text-red-600 rounded-full p-1 hover:bg-red-200">
+                <Trash2 size={17} />
               </button>
 
               <div className="flex items-center gap-4 mb-2">
@@ -287,36 +286,36 @@ const Students: React.FC = () => {
                 />
                 <div>
                   <h3 className="font-semibold text-lg">{staff.name}</h3>
-                  <p className="text-sm text-gray-500">{staff.role}</p>
+                  <p className="text-[.75rem] text-gray-500">{staff.role}</p>
                 </div>
               </div>
 
               <div
-  style={{ paddingTop: "20px" }}
-  className="text-sm text-gray-700 space-y-1 mb-4"
->
-  {/* Each span now uses flex to keep icon and text in one line with spacing */}
-  
-  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px"  }}>
-    <BsBuildingsFill size="18px" />
-    8th
-  </span>
+                style={{ paddingTop: "20px" }}
+                className="text-sm text-gray-700 space-y-1 mb-4"
+              >
+                {/* Each span now uses flex to keep icon and text in one line with spacing */}
 
-  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
-    <MdEmail size="18px" />
-    muhammadjanzirki@gamil
-  </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <BsBuildingsFill size="18px" />
+                  8th
+                </span>
 
-  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
-    <FaPhoneAlt size="18px" />
-    +92456789
-  </span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <MdEmail size="18px" />
+                  muhammadjanzirki@gamil
+                </span>
 
-  <span style={{ display: "inline-flex", alignItems: "center", gap: "9px",paddingTop: "2px" }}>
-    <IoLocationSharp size="18px" />
-    As Salam, Saad bin Obadah
-  </span>
-</div>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <FaPhoneAlt size="18px" />
+                  +92456789
+                </span>
+
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "9px", paddingTop: "2px" }}>
+                  <IoLocationSharp size="18px" />
+                  As Salam, Saad bin Obadah
+                </span>
+              </div>
 
 
               <div className="flex justify-between border-t pt-3">

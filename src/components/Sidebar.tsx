@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+// import { FaQuestionCircle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   LayoutDashboard,
@@ -7,6 +8,7 @@ import {
   GraduationCap,
   Building2,
   BookOpen,
+  
   Settings,
   LogOut,
   X,
@@ -19,6 +21,7 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
 
@@ -28,11 +31,15 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     { path: '/students', name: t('nav.students'), icon: GraduationCap },
     { path: '/departments', name: t('nav.departments'), icon: Building2 },
     { path: '/courses', name: t('nav.courses'), icon: BookOpen },
+    { path: '/Queries', name: t('Queries'), icon: BookOpen  },
+
     { path: '/settings', name: t('nav.settings'), icon: Settings },
   ];
 
   const handleLogout = () => {
     // Implement logout logic here
+    localStorage.setItem('auth',"false")
+    navigate('/login')
     console.log('Logout clicked');
   };
 

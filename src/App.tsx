@@ -10,6 +10,7 @@ import Departments from './pages/Departments';
 import Courses from './pages/Courses';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
+import Queries from "./pages/Queries"
 
 const isAuthenticated = () => {
   return localStorage.getItem('auth') === 'true';
@@ -92,6 +93,18 @@ function AppWrapper() {
           isAuthenticated() ? (
             <Layout>
               <Courses />
+            </Layout>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+       <Route
+        path="/Queries"
+        element={
+          isAuthenticated() ? (
+            <Layout>
+              <Queries />
             </Layout>
           ) : (
             <Navigate to="/login" replace />
