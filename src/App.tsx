@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { useTranslation } from 'react-i18next';
 
 import Layout from './components/Layout';
-import Dashboard from './pages/Dashboard';
-import Staff from './pages/Staff';
-import Students from './pages/Students';
-import Departments from './pages/Departments';
-import Courses from './pages/Courses';
-import Settings from './pages/Settings';
-import Login from './pages/Login';
-import Queries from "./pages/Queries"
+import Dashboard from './pages/Dashboard/Dashboard';
+import Staff from './pages/Staff/Staff';
+import Students from './pages/Students/Students';
+import Departments from './pages/Departments/Departments';
+import Courses from './pages/Courses/Courses';
+import Settings from './pages/Settings/Settings';
+import Login from './pages/login/Login';
+import Queries from "./pages/Queries/QueryTable"
 
 const isAuthenticated = () => {
   return localStorage.getItem('auth') === 'true';

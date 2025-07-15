@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import StatsCard from '../components/StatsCard';
+import StatsCard from '../../components/StatsCard';
 import { Building2, Users, GraduationCap, BookOpen, TrendingUp, Calendar } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
