@@ -5,8 +5,8 @@ import { BsBuildingsFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import TeacherModal from './TeacherModal';
-import ConfirmDialog from './ConfirmDialog';
+import TeacherModal from '../../components/AdminComponents/StaffTeacherModal';
+import ConfirmDialog from '../../components/AdminComponents/StaffConfirmDialog';
 
 interface Teacher {
   id: string;

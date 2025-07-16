@@ -2,8 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, Bell, User, X, CheckCircle2 } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
-
+import LanguageSwitcher from '../cammonFiles/LanguageSwitcher';
 interface HeaderProps {
   setSidebarOpen: (open: boolean) => void;
 }

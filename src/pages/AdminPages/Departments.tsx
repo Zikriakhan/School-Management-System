@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Building2, Plus, Search, Users, BookOpen, User, Edit, Trash2 } from 'lucide-react';
-import DepartmentModal from './DepartmentModal';
-import ConfirmDialog from './ConfirmDialog';
+import DepartmentModal from '../../components/AdminComponents/DepartmentModal';
+import ConfirmDialog from '../../components/AdminComponents/ConfirmDialog';
 
 interface Department {
   id: number;

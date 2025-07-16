@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Layout from './components/Layout';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Staff from './pages/Staff/Staff';
-import Students from './pages/Students/Students';
-import Departments from './pages/Departments/Departments';
-import Courses from './pages/Courses/Courses';
-import Settings from './pages/Settings/Settings';
-import Login from './pages/login/Login';
-import Queries from "./pages/Queries/QueryTable"
+import Layout from './Layout/AdmonLayout/Layout';
+import Dashboard from './pages/AdminPages/Dashboard';
+import Staff from './pages/AdminPages/Staff';
+import Students from './pages/AdminPages/Students';
+import Departments from './pages/AdminPages/Departments';
+import Courses from './pages/AdminPages/Courses';
+import Settings from './pages/AdminPages/Settings';
+import Login from './pages/AdminPages/Login';
+import Queries from "./pages/AdminPages/QueryTable"
 
 const isAuthenticated = () => {
   return localStorage.getItem('auth') === 'true';
