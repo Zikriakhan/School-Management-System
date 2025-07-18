@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "timetable": "الجدول الزمني",
+    "account": "الحساب",
+    "queries": "الاستعلامات",
+    "quiz": "الاختبار",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "classes": "الفصول",
+    "present": "حاضر",
+    "absent": "غائب",
+    "monthlyAttendance": "نظرة عامة على الحضور الشهري",
+    "currentDayOverview": "نظرة عامة على اليوم الحالي",
+    "classesToday": "فصول اليوم",
+    "taken": "مأخوذ",
+    "remaining": "متبقي",
+    "upcomingEvents": "الأحداث القادمة",
+    "attendanceRatio": "نسبة الحضور",
+    "recentQueries": "الاستعلامات الأخيرة",
+    "viewAll": "عرض الكل"
+  },
+  "timetable": {
+    "title": "الجدول الزمني",
+    "todayOverview": "نظرة عامة على اليوم",
+    "todayClasses": "فصول اليوم",
+    "classesTaken": "الفصول المنجزة",
+    "remainingClasses": "الفصول المتبقية",
+    "weeklyTimetable": "جدول الجدول الزمني الأسبوعي",
+    "printView": "عرض الطباعة",
+    "course": "المقرر",
+    "class": "الفصل",
+    "section": "القسم",
+    "startTime": "وقت البداية",
+    "endTime": "وقت النهاية"
+  },
+  "account": {
+    "title": "الحساب",
+    "totalPaid": "إجمالي المدفوع",
+    "unpaidBalance": "الرصيد غير المدفوع",
+    "absentBalance": "رصيد الغياب",
+    "teachingHours": "نظرة عامة على ساعات التدريس",
+    "salaryStatus": "جدول حالة الراتب",
+    "month": "الشهر",
+    "salaryStatus": "حالة الراتب",
+    "paidDate": "تاريخ الدفع",
+    "dueDate": "تاريخ الاستحقاق",
+    "paid": "مدفوع"
+  },
+  "quiz": {
+    "title": "الاختبار",
+    "totalQuizzes": "إجمالي الاختبارات",
+    "checkedQuizzes": "الاختبارات المفحوصة",
+    "remainingQuizzes": "الاختبارات المتبقية",
+    "search": "بحث",
+    "quizTable": "جدول الاختبارات",
+    "sno": "الرقم المسلسل",
+    "title": "العنوان",
+    "class": "الفصل",
+    "submitted": "مُسلم",
+    "totalToSubmit": "إجمالي التسليم",
+    "dueDate": "تاريخ الاستحقاق",
+    "createdAt": "تاريخ الإنشاء",
+    "actions": "الإجراءات",
+    "enterTitle": "أدخل العنوان"
+  },
+  "common": {
+    "schoolName": "مدرسة نجاح المعلومات",
+    "status": "الحالة",
+    "type": "النوع",
+    "hoursSpent": "الساعات المنقضية",
+    "programming": "البرمجة",
+    "python": "بايثون"
+  }
+}

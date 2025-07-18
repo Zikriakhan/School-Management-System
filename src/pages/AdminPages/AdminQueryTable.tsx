@@ -37,7 +37,7 @@ const departments = [
   { name: 'Other', count: 5, bg: 'bg-purple-800' },
 ];
 
-const QueryTable = () => {
+const AdminQueryTable = () => {
   // State for controlling modals
   const [showAddForm, setShowAddForm] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -765,4 +765,4 @@ const QueryTable = () => {
   );
 };
 
-export default QueryTable;
+export default AdminQueryTable;

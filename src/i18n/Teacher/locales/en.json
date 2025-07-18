@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "timetable": "Timetable",
+    "account": "Account",
+    "queries": "Queries",
+    "quiz": "Quiz",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "classes": "Classes",
+    "present": "Present",
+    "absent": "Absent",
+    "monthlyAttendance": "Monthly Attendance Overview",
+    "currentDayOverview": "Current Day Overview",
+    "classesToday": "Classes Today",
+    "taken": "Taken",
+    "remaining": "Remaining",
+    "upcomingEvents": "Upcoming Events",
+    "attendanceRatio": "Attendance Ratio",
+    "recentQueries": "Recent Queries",
+    "viewAll": "View All"
+  },
+  "timetable": {
+    "title": "Timetable",
+    "todayOverview": "Today's Overview",
+    "todayClasses": "Today's Classes",
+    "classesTaken": "Classes Taken",
+    "remainingClasses": "Remaining Classes",
+    "weeklyTimetable": "Weekly Timetable Table",
+    "printView": "Print View",
+    "course": "Course",
+    "class": "Class",
+    "section": "Section",
+    "startTime": "Start Time",
+    "endTime": "End Time"
+  },
+  "account": {
+    "title": "Account",
+    "totalPaid": "Total Paid",
+    "unpaidBalance": "Unpaid Balance",
+    "absentBalance": "Absent Balance",
+    "teachingHours": "Teaching Hours Overview",
+    "salaryStatus": "Salary Status Table",
+    "month": "Month",
+    "salaryStatus": "Salary Status",
+    "paidDate": "Paid Date",
+    "dueDate": "Due Date",
+    "paid": "Paid"
+  },
+  "quiz": {
+    "title": "Quiz",
+    "totalQuizzes": "Total Quizzes",
+    "checkedQuizzes": "Checked Quizzes",
+    "remainingQuizzes": "Remaining Quizzes",
+    "search": "Search",
+    "quizTable": "Quiz Table",
+    "sno": "S.No",
+    "title": "Title",
+    "class": "Class",
+    "submitted": "Submitted",
+    "totalToSubmit": "Total To Submit",
+    "dueDate": "Due Date",
+    "createdAt": "Created At",
+    "actions": "Actions",
+    "enterTitle": "Enter title"
+  },
+  "common": {
+    "schoolName": "Success Information School",
+    "status": "Status",
+    "type": "Type",
+    "hoursSpent": "Hours Spent",
+    "programming": "Programming",
+    "python": "Python"
+  }
+}

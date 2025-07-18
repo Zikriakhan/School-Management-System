@@ -2,18 +2,30 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Layout from './Layout/AdmonLayout/Layout';
-import Dashboard from './pages/AdminPages/Dashboard';
+// Admin pages
+import AdminLayout from './Layout/AdminLayout/Layout';
+import AdminDashboard from './pages/AdminPages/AdminDashboard';
 import Staff from './pages/AdminPages/Staff';
 import Students from './pages/AdminPages/Students';
 import Departments from './pages/AdminPages/Departments';
 import Courses from './pages/AdminPages/Courses';
 import Settings from './pages/AdminPages/Settings';
 import Login from './pages/AdminPages/Login';
-import Queries from "./pages/AdminPages/QueryTable"
+import AdminQueryTable from "./pages/AdminPages/AdminQueryTable";
+
+// Teacher pages
+import Sidebar from './Layout/TeacherLayout/Sidebar';
+import TeacherDashboard from './pages/TeacherPages/Dashboard';
+import Timetable from './pages/TeacherPages/Timetable';
+import Account from './pages/TeacherPages/Account';
+import Quiz from './pages/TeacherPages/Quiz';
 
 const isAuthenticated = () => {
   return localStorage.getItem('auth') === 'true';
+};
+
+const getUserRole = () => {
+  return localStorage.getItem('userRole') || 'admin'; // Default to admin
 };
 
 function AppWrapper() {
@@ -25,104 +37,176 @@ function AppWrapper() {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
+  const userRole = getUserRole();
+
   return (
     <Routes>
       <Route
         path="/"
         element={
-          isAuthenticated() ? <Navigate to="/dashboard" replace /> : <Login />
+          isAuthenticated() ? (
+            <Navigate to={userRole === 'teacher' ? '/teacher/dashboard' : '/admin/dashboard'} replace />
+          ) : (
+            <Login />
+          )
         }
       />
       <Route
         path="/login"
         element={
-          isAuthenticated() ? <Navigate to="/dashboard" replace /> : <Login />
+          isAuthenticated() ? (
+            <Navigate to={userRole === 'teacher' ? '/teacher/dashboard' : '/admin/dashboard'} replace />
+          ) : (
+            <Login />
+          )
         }
       />
+
+      {/* Admin Routes */}
       <Route
-        path="/dashboard"
+        path="/admin/dashboard"
         element={
-          isAuthenticated() ? (
-            <Layout>
-              <Dashboard />
-            </Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
+              <AdminDashboard />
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
       <Route
-        path="/staff"
+        path="/admin/staff"
         element={
-          isAuthenticated() ? (
-            <Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
               <Staff />
-            </Layout>
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
       <Route
-        path="/students"
+        path="/admin/students"
         element={
-          isAuthenticated() ? (
-            <Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
               <Students />
-            </Layout>
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
       <Route
-        path="/departments"
+        path="/admin/departments"
         element={
-          isAuthenticated() ? (
-            <Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
               <Departments />
-            </Layout>
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
       <Route
-        path="/courses"
+        path="/admin/courses"
         element={
-          isAuthenticated() ? (
-            <Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
               <Courses />
-            </Layout>
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }
-      />
-       <Route
-        path="/Queries"
-        element={
-          isAuthenticated() ? (
-            <Layout>
-              <Queries />
-            </Layout>
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
       <Route
-        path="/settings"
+        path="/admin/queries"
         element={
-          isAuthenticated() ? (
-            <Layout>
-              <Settings />
-            </Layout>
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
+              <AdminQueryTable />
+            </AdminLayout>
           ) : (
             <Navigate to="/login" replace />
           )
         }
       />
+      <Route
+        path="/admin/settings"
+        element={
+          isAuthenticated() && userRole === 'admin' ? (
+            <AdminLayout>
+              <Settings />
+            </AdminLayout>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      {/* Teacher Routes */}
+      <Route
+        path="/teacher/dashboard"
+        element={
+          isAuthenticated() && userRole === 'teacher' ? (
+            <Sidebar>
+              <TeacherDashboard />
+            </Sidebar>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/teacher/timetable"
+        element={
+          isAuthenticated() && userRole === 'teacher' ? (
+            <Sidebar>
+              <Timetable />
+            </Sidebar>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/teacher/account"
+        element={
+          isAuthenticated() && userRole === 'teacher' ? (
+            <Sidebar>
+              <Account />
+            </Sidebar>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+      <Route
+        path="/teacher/quiz"
+        element={
+          isAuthenticated() && userRole === 'teacher' ? (
+            <Sidebar>
+              <Quiz />
+            </Sidebar>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
+      {/* Legacy routes for backward compatibility */}
+      <Route path="/dashboard" element={<Navigate to="/admin/dashboard" replace />} />
+      <Route path="/staff" element={<Navigate to="/admin/staff" replace />} />
+      <Route path="/students" element={<Navigate to="/admin/students" replace />} />
+      <Route path="/departments" element={<Navigate to="/admin/departments" replace />} />
+      <Route path="/courses" element={<Navigate to="/admin/courses" replace />} />
+      <Route path="/queries" element={<Navigate to="/admin/queries" replace />} />
+      <Route path="/settings" element={<Navigate to="/admin/settings" replace />} />
+
       {/* Redirect all other routes */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
@@ -136,4 +220,3 @@ export default function App() {
     </Router>
   );
 }
-
